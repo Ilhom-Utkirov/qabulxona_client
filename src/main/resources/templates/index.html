@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/meta :: head">
+
+</head>
+
+<body>
+<th:block th:replace="fragments/scripts :: scripts"></th:block>
+
+<!--th:style="'background: url(../static/img/900900.jpg) center no-repeat;'"-->
+
+<div id="main">
+    <div th:replace="fragments/header :: header"/>
+    <section id="content_wrapper" class="section-content-mine">
+        <section id="content" class="table-layout animated fadeIn">
+            <div class="admin-form tray tray-center" style="height: 608px;">
+                <div class="clearfix mb-20">
+                    <h4 class="pull-left mt-15 mb-0">Murojaatnoma</h4>
+                </div>
+                <hr class="alt short"/>
+                <div class="mw1000 center-block">
+                    <div class="admin-form theme-primary">
+                        <div class="panel heading-border panel-primary">
+                            <form method="post" th:action="@{/appeal/save}" th:object="${appeal}">
+                                <div class="panel-body p25">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <!--name="anonim"-->
+                                            <label class="option"><input type="checkbox" id="anonim"   value="1"/><span class="checkbox" ></span><span>Anonim murojaat</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="mt30 mb30 section-divider" align="center"><span></span></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group" id="nameDiv">
+                                                <label class="control-label">
+                                                    <span>Ismingiz</span>
+                                                </label>
+                                                <input id="name" title="name" type="text" class="form-control"  required="required" th:field="*{name}"/>
+                                            </div>
+                                            <div class="form-group" id="matriculaDiv">
+                                                <label class="control-label">
+                                                    <span>Id raqamingiz</span>
+                                                </label>
+                                                <input id="matricula" title="matricula" type="text"  required="required" class="form-control" th:field="*{studentId}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Murajaat turi</label>
+                                                <select class="form-control" required="required"  th:field="*{appealType}">
+                                                    <option value="Shikoyat">Shikoyat</option>
+                                                    <option value="Taklif">Taklif</option>
+                                                    <option value="Ariza">Ariza</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" id="surnameDiv">
+                                                <label class="control-label">
+                                                    <span>Familyangiz</span>
+                                                </label>
+                                                <input id="surname" title="surname" type="text" class="form-control"  required="required" th:field="*{surname}"/>
+                                            </div>
+                                            <div class="form-group" id="phoneDiv">
+                                                <label class="control-label">
+                                                    <span>Telefon raqamingiz</span>
+                                                </label>
+                                                <input id="phone" title="phone" type="text" class="form-control"  required="required" th:field="*{phoneNumber}"/>
+                                            </div>
+
+                                            <!-- I added-->
+                                            <div class="row" id="emailHideIconDiv">
+                                                <div class="col-md-4">
+                                                    <label class="option">
+                                                        <input type="checkbox" id="emailHideIcon" onchange="hideEmail()" name="EmailHide"  value="1"/>
+                                                        <span class="checkbox" ></span><span>Emailni yashirish</span>
+                                                    </label>
+                                                    <label id="emailExplanation"><small>Email faqat murojaatingiz javobini yuborish uchun foydalaniladi</small></label>
+                                                </div>
+                                            </div>
+                                            <!-- End I added -->
+
+                                            <div class="form-group" id="emaildiv">
+                                                <label class="control-label">
+                                                    <span>Emailingiz</span>
+                                                </label>
+                                                <input id="email" title="email" type="text" class="form-control"  required="required" th:field="*{studentEmail}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <textarea placeholder="murojaat matni...." th:field="*{appaelText}" style="font-size: larger; min-height: 200px"  class="form-control" id="appealText" required="required"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mt30 mb30 section-divider" align="center"><span></span></div>
+                                    <!-- For files  -->
+                                    <!--
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <div action="/upload" method="post" enctype="multipart/form-data">
+                                                <label class="control-label"><span>faylni yuklang</span></label>
+                                                <label class="field">
+                                                    <input hidden="hidden" type="text" name="fileNames"
+                                                           th:value="'filenames'"/>
+                                                    <input type="file" class="form-control" name="files"
+                                                           accept="image/jpeg,image/jpg,image/png,application/pdf,application/doc,application/docx"/>
+
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="mt30 mb30 section-divider" align="center"><span></span></div>
+                                    <div class="text-right">
+                                        <!--<button type="submit" id="submit" class="btn btn-primary">Yuborish</button>-->
+                                        <button type="button" id="submit" class="btn btn-primary submitBtn">Yuborish</button>
+                                        <button type="submit" id="submit2" value="Upload Files" class="btn btn-primary submitBtn2">Yuborish</button>
+                                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+<!-- type='text/javascript' src="/static/lib/inputmask/jquery.inputmask.bundle.js" -->
+<!--<script th:src="@{/lib/inputmask/jquery.inputmask.bundle.js}"></script>-->
+<script type='text/javascript' src="/static/lib/inputmask/jquery.inputmask.bundle.js"></script>
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+    var _csrf = [[${_csrf.token}]];
+    var _csrf_header = [[${_csrf.headerName}]];
+    $(document).ajaxSend(function (e, xhr, options) {
+        xhr.setRequestHeader(_csrf_header, _csrf);
+    });
+
+
+    $(document).ready(function () {
+        $('#submit2').hide();
+        putInputMasks();
+
+        //to initially become invisible
+        $('#emailHideIconDiv').hide();
+
+        $('#anonim').on('change',function (event) {
+            event.preventDefault();
+            if ($('#anonim').is(":checked")) {
+
+                $('#name').val('anonim');
+                $('#nameDiv').hide(400);
+                $('#matriculaDiv').hide(400);
+                $('#matricula').val('anonim');
+                $('#surnameDiv').hide(400);
+                $('#surname').val('anonim');
+                $('#phoneDiv').hide(400);
+                putInputMasks();
+
+                hideEmail();
+            }
+            else{
+                $('#emailHideIconDiv').hide();
+                putInputMasks();
+                $('#name').val('');
+                $('#surname').val('');
+                $('#matricula').val(' ');
+
+                $('#nameDiv').show(400);
+                $('#matriculaDiv').show(400);
+                $('#surnameDiv').show(400);
+                $('#emaildiv').show(400);
+                $('#phoneDiv').show(400);
+            }
+        });
+
+    });
+
+    $('.submitBtn').on('click' , function(event) {
+
+        event.preventDefault();
+
+        var modalBody = $('#checkModal .modal-body');
+        modalBody.empty();
+        //var info = data.details;
+        var name = $('#name').val();
+        var surname = $('#surname').val();
+        var studentId = $('#matricula').val();
+        var studentEmail = $('#email').val();
+        var phoneNumber = $('#phone').val();
+        var appealType = $('#appealType').val();
+        var appaelText = $('#appealText').val();
+
+        //var today = new Date();
+        //var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        //var dateCreated = date+' '+time;
+
+        if ($('#anonim').is(":checked")) {
+            $('<p>Bu <strong>Anonim</strong> murojaat</p>').appendTo(modalBody);
+            if ($('#emailHideIcon').is(":checked")) {
+            }else{
+                $('<p>Email addres: <strong>' + studentEmail + '</strong></p>').appendTo(modalBody);
+            }
+        }else{
+        $('<h6>Shu murojaatni jo&apos;natmoqchimisiz?</h6>' +
+            '<p>Ism: <strong>' + name + '</strong></p>' +
+            '<p>Familya: <strong>' + surname + '</strong></p>' +
+            '<p>Student Id raqami: <strong>' + studentId + '</strong></p>' +
+
+            '<p>Telefon nomer: <strong>' + phoneNumber + '</strong></p>').appendTo(modalBody);
+
+        }
+
+
+        $('<h6>Murojaat</h6>' +
+            '<p>Murojaat turi: <strong>' + appealType + '</strong></p>' //+
+            //'<p>Date sent: <strong>' + dateCreated + '</strong></p>'
+        ).appendTo(modalBody);
+
+        $('<h6></h6>' +
+            '<p>Murojaat matni: <strong>' + appaelText + '</strong></p>').appendTo(modalBody);
+
+        $('#checkModal').modal();
+
+        /* $('#close1').on('change',function (event){
+                                 event.preventDefault();
+                                 if($('#close1').is(":clicked")){
+
+                                 }
+         });
+
+         $('#close2').on('change',function (event){
+             event.preventDefault();
+             if($('#close2').is(":clicked")){
+                 document.getElementById("submit2").click();
+             }
+         })*/
+
+
+    });
+
+
+
+    function hideEmail() {
+        $('#emailHideIconDiv').show(400);
+        /// event.preventDefault();
+        $('#emailHideIcon').on('change',function (event) {
+            event.preventDefault();
+            if ($('#emailHideIcon').is(":checked")) {
+                $('#emaildiv').hide(400);
+                $('#email').val('anonim');
+                $('#emailExplanation').hide(410);
+            }
+            else{
+                $('#emaildiv').show(400);
+                $('#emailExplanation').show(410);
+                $('#email').val('');
+            }
+        });
+    }
+
+    function closeModal(){
+        event.preventDefault();
+        //document.getElementById("submitFiles").click();
+        document.getElementById("submit2").click();
+    }
+
+    function putInputMasks(){
+        $('#phone').inputmask({
+            "mask": "(\\9\\98)99 999-99-99",
+            clearMaskOnLostFocus:false,
+            placeholder:"(998)** ***-**-**",
+            removeMaskOnSubmit: true
+        });
+    }
+
+    // function showAlert() {
+    //     confirm("Вы уверены?");
+    // }
+
+    /*]]>*/
+</script>
+
+
+<!--modal-->
+<div id="checkModal" class="modal printable" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Murojaat</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body info-block">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal-->
+
+</body>
+</html>

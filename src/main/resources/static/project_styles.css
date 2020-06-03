@@ -1,0 +1,11 @@
+/*Flash Messages*/
+#notifications {
+    top: 55px;
+    right: 10px;
+    position: fixed;
+    text-align: right;
+}
+#notifications .alert {
+    box-shadow: 0 0 5px #555
+}
+

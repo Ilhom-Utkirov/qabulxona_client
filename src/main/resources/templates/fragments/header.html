@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head></head>
+<body>
+<div th:fragment="header" th:remove="tag">
+
+    <!-- Page Header-->
+    <header class="navbar undefined">
+        <!--<header class="navbar navbar-fixed-top">-->
+
+        <div class="navbar-branding bg-system dark">
+<!--            <a href="/" class="navbar-brand text-uppercase"><img src="/assets/img/../..."/></a>-->
+            <span id="toggle_sidemenu_l" class="fa fa-bars"></span></div>
+
+
+<!--        <ul class="nav navbar-nav navbar-right">-->
+<!--            <li class="dropdown menu-merge bg-system dark"><a href="#" data-toggle="dropdown" class="dropdown-toggle fw600 p15"><span-->
+<!--                    class="fa fa-user"></span> </a>-->
+<!--                <ul role="menu" class="dropdown-menu list-group dropdown-persist w250">-->
+<!--                    <li class="dropdown-header clearfix">-->
+<!--                        <div align="center"><h4 style="margin:0">Аккаунт</h4></div>-->
+<!--                    </li>-->
+<!--                    <li class="list-group-item"><a href="#" id="change-password-link" onclick="showChangePasswordModal()"><span-->
+<!--                            class="fa fa-gear"> </span>Изменить пароль</a></li>-->
+<!--                    <li class="list-group-item"><a href=""><span-->
+<!--                            class="fa fa-building"> </span>Организация</a></li>-->
+<!--                    <li class="dropdown-footer"><a th:href="@{/logout}" th:title="#{quit}"><span-->
+<!--                            class="fa fa-power-off pr5"></span> Выйти</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+    </header>
+
+    <!-- Start: Sidebar-->
+    <aside id="sidebar_left" class="nano nano-light">
+        <!-- Start: Sidebar Left Content-->
+        <div class="sidebar-left-content nano-content">
+            <!-- Start: Sidebar Header-->
+            <header class="sidebar-header">
+                <!-- Sidebar Widget - Search (hidden)-->
+                <div class="sidebar-widget search-widget hidden">
+                    <div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input id="sidebar-search" type="text" placeholder="Search..." class="form-control"/>
+                    </div>
+                </div>
+            </header>
+            <ul class="nav sidebar-menu">
+                <li><a href="/">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <span  class="sidebar-title">Appeal form</span></a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+<!--    <div id="password-modal-form" class="popup-basic admin-form mfp-with-anim" style="display: none">-->
+<!--        <div class="panel">-->
+<!--            <div class="panel-heading"><span class="panel-title"><i class="fa fa-user"></i>Изменить пароль</span></div>-->
+<!--            <form id="change-password-form" action="" method="post">-->
+<!--                <div class="panel-body p25">-->
+<!--                    <div class="section row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <label for="old-password" class="field prepend-icon">-->
+<!--                                <input id="old-password" type="password" name="oldPassword" placeholder="Старый пароль" class="gui-input"/>-->
+<!--                                <label for="old-password" class="field-icon"><i class="fa fa-user"></i></label>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="section row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <label for="new-password" class="field prepend-icon">-->
+<!--                                <input id="new-password" type="password" name="newPassword" placeholder="Новый пароль" class="gui-input"/>-->
+<!--                                <label for="new-password" class="field-icon"><i class="fa fa-user"></i></label>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="section row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <label     for="confirm-password" class="field prepend-icon">-->
+<!--                                <input  id="confirm-password" type="password" name="confirmPassword" placeholder="Подтвердите пароль" class="gui-input"/>-->
+<!--                                <label for="confirm-password" class="field-icon"><i class="fa fa-envelope"></i></label>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="panel-footer">-->
+<!--                    <button type="submit" class="button btn-primary">Сохранить</button>-->
+<!--                </div>-->
+
+<!--            </form>-->
+<!--        </div>-->
+<!--        <button title="Close (Esc)" type="button" class="mfp-close">×</button>-->
+<!--    </div>-->
+
+    <script th:inline="javascript">
+         /*<![CDATA[*/
+        //
+        // var logo_csrf = [[${_csrf.token}]];
+        // var logo_csrf_header = [[${_csrf.headerName}]];
+        //
+        // $(document).ajaxSend(function (e, xhr, options) {
+        //     xhr.setRequestHeader(logo_csrf_header, logo_csrf);
+        // });
+        //
+        // $(document).ready(function (){
+        //
+        //     getStoreLogo();
+        //
+        // });
+        //
+        // function getStoreLogo() {
+        //     $.ajax({
+        //         url: '/provider/get-store-logo',
+        //         type: 'GET',
+        //         success: function (data) {
+        //
+        //             if(data.status==='OK'){
+        //
+        //                 let html = '<img src="data:image/jpeg;base64, '+data.logoUrl+'" height="60" style="margin-top:5px"/>'
+        //                 $('#logo-space').append(html);
+        //             }
+        //         }
+        //     })
+        // }
+
+        /*]]>*/
+    </script>
+</div>
+
+
+</body>
+</html>

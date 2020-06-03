@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <th:block th:fragment="scripts">
+
+        <!-- core scripts-->
+        <script th:src="@{/plugins/core.min.js}"></script>
+        <!-- Theme Javascript-->
+        <script th:src="@{/assets/js/utility/utility.js}"></script>
+        <script th:src="@{/assets/js/demo/demo.js}"></script>
+        <script th:src="@{/assets/js/main.js}"></script>
+        <!-- Widget Javascript-->
+
+        <script th:src="@{/assets/js/demo/widgets.js}"></script>
+        <script th:src="@{/assets/js/init.js}"></script>
+        <script th:src="@{/assets/js/select2.min.js}"></script>
+        <script th:src="@{/assets/admin-tools/admin-forms/js/datepickerUtil.js}"></script>
+        <script th:src="@{/assets/js/common/jquery.validate.js}"></script>
+        <script th:src="@{/assets/js/common/additional-methods.min.js}"></script>
+
+        <link th:href="@{/assets/skin/select2.min.css}" rel="stylesheet" type="text/css"/>
+
+        <script th:inline="javascript">
+
+            jQuery(document).ready(function () {
+                var curlink = location.pathname;
+                if (curlink.includes("\\edit") || curlink.includes("\\view") || curlink.includes("\\create")) {
+                    curlink = RemoveLastDirectoryPartOf(curlink);
+                }
+
+                var navbar = $('.nav, .sidebar-menu');
+                var anchor = $(navbar).find("a[href='" + curlink + "']")[0];
+                $(anchor).parent('li').addClass('active');
+                var ulAnchorSiblings = $(anchor).parent('li').parent('ul').siblings('a');
+                $(ulAnchorSiblings).addClass('menu-open');
+                var secondLevelAnchorSibglings = $(ulAnchorSiblings).parent('li').parent('ul').siblings('a');
+                $(secondLevelAnchorSibglings).addClass('menu-open');
+
+                validateNewPasswordForm();
+            });
+
+            function validateNewPasswordForm(){
+                var form = $('#change-password-form');
+
+                jQuery.validator.addMethod("matchingConfirm", function () {
+                    return $('#confirm-password').val() === $('#new-password').val();
+                }, "Пароли не совпадают");
+
+                jQuery.validator.addMethod("matchingPasswords", function () {
+                    return $('#old-password').val() !== $('#new-password').val();
+                }, "Новый пароль должен отличаться от старого");
+
+                form.validate({
+                   rules:{
+                       oldPassword:{
+                           required: true
+                       },
+                       newPassword:{
+                           required: true,
+                           matchingPasswords: true
+                       },
+                       confirmPassword:{
+                           required: true,
+                           matchingConfirm: true
+                       }
+                   },
+                   messages:{
+                       oldPassword:{
+                           required: "Поле, обязательное для заполнения"
+                       },
+                       newPassword:{
+                           required: "Поле, обязательное для заполнения"
+                       },
+                       confirmPassword:{
+                           required: "Поле, обязательное для заполнения"
+                       }
+                   }
+                });
+            }
+
+            function showChangePasswordModal(){
+                $.magnificPopup.open({
+                    removalDelay: 500, //delay removal by X to allow out-animation,
+                    items: {
+                        src: '#password-modal-form'
+                    },
+                    // overflowY: 'hidden', //
+                    callbacks: {
+                        beforeOpen: function (e) {
+                            var Animation = 'mfp-with-fade';
+                            this.st.mainClass = Animation;
+                        }
+                    },
+                    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+                });
+                $('#password-modal-form').show();
+            }
+
+            function RemoveLastDirectoryPartOf(the_url) {
+                var the_arr = the_url.split('/');
+                the_arr.pop();
+                return ( the_arr.join('/') );
+            }
+
+        </script>
+    </th:block>
+    <th:block th:fragment="3rd_party_scripts">
+        <!-- 3rd party -->
+        <!--<script th:src="@{/static/lib/jquery/jquery.js}"/>
+        -->
+        <script th:src="@{/static/scripts/lib/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/static/scripts/js/utils.js}"></script>
+        <script th:src="@{/static/lib/jquery-ui/jquery-ui.min.js}"></script>
+
+
+    </th:block>
+</body>
+</html>

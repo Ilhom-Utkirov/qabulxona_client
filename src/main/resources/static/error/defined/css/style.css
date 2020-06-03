@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600&subset=cyrillic');
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    position: static;
+    z-index: -2;
+    padding: 0;
+    margin: 0;
+    background: #f2f3f7;
+}
+
+p,
+a {
+    margin: 0 0 15px;
+    color: #1e2437;
+    line-height: 35px;
+    font-size: 18px;
+}
+
+strong {
+    font-weight: 700;
+}
+
+a {
+    -webkit-transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    -ms-transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    cursor: pointer;
+    text-decoration: none;
+    color: #999
+}
+
+a:hover {
+    color: #ff1d4d !important;
+    text-decoration: none !important;
+    outline: none !important
+}
+
+a:active,
+a:focus {
+    outline: none !important;
+    text-decoration: none !important;
+    color: #999
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.vertical-align {
+    font-size: 0;
+}
+
+.page-content {
+    padding: 30px;
+}
+
+.layout-full {
+    padding-top: 0 !important;
+}
+
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.align-items-center {
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.justify-content-center {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.vertical-align:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.vertical-align-bottom,
+.vertical-align-middle {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.page {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    min-height: 100%;
+    background: #f1f4f5;
+}
+
+.layout-full .page {
+    height: 100%;
+    padding: 0;
+    margin: 0 !important;
+    background-color: transparent;
+}
+
+.page-error .error-mark {
+    margin-bottom: 33px
+}
+
+.page-error header h1 {
+    font-size: 10em;
+    font-weight: 400
+}
+
+.page-error header p {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-transform: uppercase
+}
+
+.page-error h2 {
+    margin-bottom: 30px
+}
+
+.page-error .error-advise {
+    margin-bottom: 25px;
+    color: #a9afb5
+}
+a{
+    color: #417ed9;
+}
+.error-img{
+    margin: 50px 0; 
+}
+h1 {
+    font-size: 45px;
+    line-height: 46px;
+    font-weight: 300;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.copyright {
+    font-size: 14px;
+    padding-top: 20px;
+        color: #8a8a8a;
+}
+
+
+@media (max-width: 1500px) {
+
+    p {
+        line-height: 30px;
+        font-size: 16px;
+    }
+}
+
+
+
+
+@media (max-width:991px) {
+    h1 {
+        font-size: 35px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 25px;
+        margin: 0 0 20px;
+    }
+    .error-img {
+    margin: 30px 0;
+}
+}
+
+
+
+@media (max-width:479px) {
+    h1 {
+        font-size: 30px;
+    }
+}
